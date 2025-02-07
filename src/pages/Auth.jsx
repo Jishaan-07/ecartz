@@ -43,39 +43,37 @@ const Auth = ({ insideRegister }) => {
     }
 
   }
-
   const login = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (userInput.email && userInput.password) {
-      // api call
-      try {
-        const result = await loginAPI(userInput)
-        if (result.status == 200) {
-          sessionStorage.setItem("user", JSON.stringify(result.data.user))
-          sessionStorage.setItem("token", result.data.token)
-          setIsLogin(true)
-          setTimeout(() => {
-            navigate("/")
-            setUserInput({ username: "", email: "", password: "" })
-          }, 2000)
+        try {
+            const result = await loginAPI(userInput);
+            if (result.status === 200) {
+                sessionStorage.setItem("user", JSON.stringify(result.data.user));
+                sessionStorage.setItem("token", result.data.token);
+                setIsLogin(true);
 
-        } else {
-          if (result.response.status == 404) {
-            alert(result.response.data)
-
-          }
+                setTimeout(() => {
+                    // Check if the user is an admin
+                    if (userInput.email === "admin@gmail.com" && userInput.password === "admin123") {
+                        navigate("/admin/home"); // Redirect to admin home
+                    } else {
+                        navigate("/"); // Redirect to normal home
+                    }
+                    setUserInput({ username: "", email: "", password: "" });
+                }, 2000);
+            } else {
+                if (result.response.status === 404) {
+                    alert(result.response.data);
+                }
+            }
+        } catch (err) {
+            console.log(err);
         }
-      } catch (err) {
-        console.log(err);
-
-
-      }
     } else {
-      alert("Please Fill the Form Completly!!")
+        alert("Please fill out the form completely!");
     }
-
-  }
-
+};
 
   return (
     <>
