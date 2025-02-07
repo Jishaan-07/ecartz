@@ -1,0 +1,75 @@
+# E-Cartz - E-Commerce Platform
+
+## Overview
+E-Cartz is a simple e-commerce platform built with **React**, **Bootstrap**, and **Tailwind CSS** on the frontend, while the backend is powered by **Node.js**, **Express.js**, and **MongoDB**. The platform enables users to register, log in, and view products. Admins have exclusive privileges to add new products.
+
+## Live Links
+- **Frontend Live:** [E-Cartz Frontend](https://e-cartzz-jishan-task.netlify.app/)
+- **Backend Live:** [E-Cartz Backend](https://ecartz-backend.onrender.com/)
+
+## Features
+### User Features
+- **User Registration & Login** (JWT-based authentication)
+- **View available products** with detailed descriptions
+- **Fully responsive design** for all screen sizes
+
+### Admin Features
+- **Admin Login** (Email: `admin@gmail.com`, Password: `admin123`)
+- **Add new products** with details including:
+  - Product Name
+  - Price
+  - Brand
+  - Available Stock
+  - Description
+  - Product Image (via Multer for handling `multipart/form-data` uploads)
+- **Admin Dashboard** for product management
+- **Redirection to Admin Panel** upon successful admin login
+
+## Tech Stack
+### Frontend:
+- **React.js** - Component-based UI development
+- **Bootstrap** - Styling and responsiveness
+- **Tailwind CSS** - Utility-first styling
+
+### Backend:
+- **Node.js** - Runtime environment
+- **Express.js** - Backend framework
+- **MongoDB & Mongoose** - Database and ORM
+- **JWT (JSON Web Token)** - Authentication & Authorization
+- **Multer Middleware** - Handling image uploads
+
+## Installation & Setup
+### 1. Clone the repository
+```sh
+ 
+### 2. Install Dependencies
+#### Frontend
+```sh
+cd ecartz
+npm install
+npm start
+```
+#### Backend
+```sh
+cd ecartz-backend
+npm install
+npm start
+```
+
+### 3. Environment Variables
+Create a `.env` file in the backend directory and add:
+```
+PORT=3000
+CONNECTIONSTRING=mongodb+srv://mohammedjishan8525:jishanpk@cluster0.ukkhk.mongodb.net/e-cartz?retryWrites=true&w=majority&appName=Cluster0
+
+JWTPASSWORD=jishanrizzz
+
+## Future Improvements
+- Implement **cart functionality**
+- Enable **order processing & checkout**
+- Integrate **payment gateway**
+- Add **user profile management**
+
+## Author
+Muhammed Jishan - 8113927887
+
